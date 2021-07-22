@@ -1,12 +1,12 @@
 package za.ac.nplinnovations.newsreader.connection.pojos;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Article {
     private String uri;
     private String url;
-    private Integer id;
-    private Integer asset_id;
+    private Double id;
+    private Double asset_id;
     private String source;
     private String published_date;
     private String updated;
@@ -19,11 +19,20 @@ public class Article {
     private String type;
     private String title;
     private String Abstract;
-    private ArrayList<String> des_facet;
-    private ArrayList<String> org_facet;
-    private ArrayList<String> per_facet;
-    private ArrayList<String> geo_facet;
-    private ArrayList<Media> media;
+
+    public Double getId() {
+        return id;
+    }
+
+    public Double getAsset_id() {
+        return asset_id;
+    }
+
+    private List<String> des_facet;
+    private List<String> org_facet;
+    private List<String> per_facet;
+    private List<String> geo_facet;
+    private List<Media> media;
     private Integer eta_id;
 
     public Article() {
@@ -37,13 +46,6 @@ public class Article {
         return url;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public Integer getAsset_id() {
-        return asset_id;
-    }
 
     public String getSource() {
         return source;
@@ -93,23 +95,23 @@ public class Article {
         return Abstract;
     }
 
-    public ArrayList<String> getDes_facet() {
+    public List<String> getDes_facet() {
         return des_facet;
     }
 
-    public ArrayList<String> getOrg_facet() {
+    public List<String> getOrg_facet() {
         return org_facet;
     }
 
-    public ArrayList<String> getPer_facet() {
+    public List<String> getPer_facet() {
         return per_facet;
     }
 
-    public ArrayList<String> getGeo_facet() {
+    public List<String> getGeo_facet() {
         return geo_facet;
     }
 
-    public ArrayList<Media> getMedia() {
+    public List<Media> getMedia() {
         return media;
     }
 

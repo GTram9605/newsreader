@@ -5,24 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-//import com.android.volley.Response;
+import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import org.json.JSONObject;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import za.ac.nplinnovations.newsreader.connection.Connection;
 import za.ac.nplinnovations.newsreader.connection.QueryService;
 import za.ac.nplinnovations.newsreader.connection.pojos.MainResponse;
@@ -38,20 +31,27 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
     }
 
     public void onClickStart(View view) {
-/*        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = (Connection.getUrl("viewed", 7));
+        RequestQueue queue = Volley.newRequestQueue(this);
+//        String url = (Connection.getUrl("viewed", 7));
+        String url = "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=JGGKCKZJTTwd6NUWsQe3GhrQL7AjbIMh";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                MainResponse mainResponse = gson.fromJson(response.toString(), MainResponse.class);
+
                 Log.d(TAG, "=================================================================================" +
                         "\n=================================================================================");
-                Log.d(TAG, "JSON response: " + mainResponse.toString());
+                Log.d(TAG, "JSON response: " + response.toString());
+                MainResponse mainResponse = gson.fromJson(response.toString(), MainResponse.class);
+
+                Log.d(TAG, mainResponse.getCopyright() + "\n"
+                        + mainResponse.getResults().size() + "\n"
+                        + mainResponse.getNum_results());
             }
         }, new Response.ErrorListener() {
             @Override
@@ -63,9 +63,9 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
 
-        queue.add(jsonObjectRequest);*/
+        queue.add(jsonObjectRequest);
 
-        Gson gson = new GsonBuilder().setLenient().create();
+        /*Gson gson = new GsonBuilder().setLenient().create();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Connection.getUrl("viewed", 7))
@@ -92,6 +92,6 @@ public class SplashActivity extends AppCompatActivity {
                 Log.d(TAG, "Failure: " + t.getLocalizedMessage());
                 Log.d(TAG, "Failure: " + t.getMessage());
             }
-        });
+        });*/
     }
 }

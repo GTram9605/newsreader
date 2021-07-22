@@ -1,12 +1,21 @@
 package za.ac.nplinnovations.newsreader.connection.pojos;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
 
-public class MainResponse {
+public class MainResponse implements Serializable {
     private String status;
     private String copyright;
     private Integer num_results;
-    private ArrayList<Article> results;
+    private List<Article> results;
+
+    public MainResponse(String status, String copyright,
+            Integer num_results, List<Article> results) {
+        this.status = status;
+        this.copyright = copyright;
+        this.num_results = num_results;
+        this.results = results;
+    }
 
     public MainResponse() {
     }
@@ -23,7 +32,7 @@ public class MainResponse {
         return num_results;
     }
 
-    public ArrayList<Article> getResults() {
+    public List<Article> getResults() {
         return results;
     }
 }

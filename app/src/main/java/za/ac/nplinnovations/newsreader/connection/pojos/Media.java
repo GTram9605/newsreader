@@ -1,7 +1,8 @@
 package za.ac.nplinnovations.newsreader.connection.pojos;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.ArrayList;
+
+import java.util.List;
 
 public class Media {
     private String type;
@@ -10,7 +11,7 @@ public class Media {
     private String copyright;
     private Integer approved_for_syndication;
     @SerializedName("media-metadata")
-    private ArrayList<Image> media_metadata;
+    private List<Image> media_metadata;
     private Integer eta_id;
 
     public Media() {
@@ -36,7 +37,7 @@ public class Media {
         return approved_for_syndication;
     }
 
-    public ArrayList<Image> getMedia_metadata() {
+    public List<Image> getMedia_metadata() {
         return media_metadata;
     }
 
