@@ -1,8 +1,9 @@
 package za.ac.nplinnovations.newsreader.connection.pojos;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Article {
+public class Article implements Serializable {
     private String uri;
     private String url;
     private Double id;

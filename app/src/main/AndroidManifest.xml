@@ -3,6 +3,7 @@
     package="za.ac.nplinnovations.newsreader">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,9 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".connection.article.ListArticlesActivity"
+            android:label="@string/title_activity_list_articles"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
             android:name=".connection.article.ViewArticleActivity"
             android:label="@string/title_activity_view_article"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppThemeWithoutActionBar">

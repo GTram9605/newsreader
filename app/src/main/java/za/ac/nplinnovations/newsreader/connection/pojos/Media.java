@@ -2,9 +2,10 @@ package za.ac.nplinnovations.newsreader.connection.pojos;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Media {
+public class Media implements Serializable {
     private String type;
     private String subtype;
     private String caption;

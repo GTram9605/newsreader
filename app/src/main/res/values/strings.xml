@@ -92,4 +92,19 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_list_articles">Articles</string>
+    <string name="noDataFound">No articles found at this period, please try again later.</string>
+    <string name="date">2017-06-23</string>
+
+    <array name="categories" >
+        <item>Most emailed</item>
+        <item>Most shared on facebook</item>
+        <item>Most viewed</item>
+    </array>
+
+    <array name="periods" >
+        <item>1 Day</item>
+        <item>7 Days</item>
+        <item>30 Days</item>
+    </array>
 </resources>
