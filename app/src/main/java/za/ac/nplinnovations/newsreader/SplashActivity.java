@@ -20,6 +20,7 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 
+import za.ac.nplinnovations.newsreader.connection.Connection;
 import za.ac.nplinnovations.newsreader.connection.article.ListArticlesActivity;
 import za.ac.nplinnovations.newsreader.connection.pojos.MainResponse;
 
@@ -46,8 +47,9 @@ public class SplashActivity extends AppCompatActivity {
         final Intent intent = new Intent(view.getContext(), ListArticlesActivity.class);
 
         RequestQueue queue = Volley.newRequestQueue(this);
-//        String url = (Connection.getUrl("viewed", 7));
-        String url = "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=JGGKCKZJTTwd6NUWsQe3GhrQL7AjbIMh";
+        String url = (Connection.getUrl("viewed", 7));
+
+//        String url = "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=JGGKCKZJTTwd6NUWsQe3GhrQL7AjbIMh";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,
                 null, new Response.Listener<JSONObject>() {
@@ -72,7 +74,6 @@ public class SplashActivity extends AppCompatActivity {
                 Log.d(TAG, "Failure: " + error.getMessage());
                 Log.d(TAG, "Failure: " + error.getCause());
                 tvErrorMessage.setText(error.getLocalizedMessage());
-
                 pgLoading.setVisibility(View.GONE);
                 tvErrorMessage.setVisibility(View.VISIBLE);
             }
