@@ -95,6 +95,7 @@
     <string name="title_activity_list_articles">Articles</string>
     <string name="noDataFound">No articles found at this period, please try again later.</string>
     <string name="date">2017-06-23</string>
+    <string name="publishdate">"Published date: "</string>
 
     <array name="categories" >
         <item>Most emailed</item>

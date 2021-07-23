@@ -1,5 +1,7 @@
 package za.ac.nplinnovations.newsreader.connection.pojos;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class Article implements Serializable {
     private String byline;
     private String type;
     private String title;
+    @SerializedName("abstract")
     private String Abstract;
 
     public Double getId() {

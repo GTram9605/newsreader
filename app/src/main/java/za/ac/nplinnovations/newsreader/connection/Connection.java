@@ -6,8 +6,8 @@ public class Connection {
     private final static String API_KEY = "JGGKCKZJTTwd6NUWsQe3GhrQL7AjbIMh";
 
     public static String getUrl(String category, int period) {
-        String url = PROTOCOL + ADDRESS + category + "/";
-                //+ "api-key=" + API_KEY;
+        String url = PROTOCOL + ADDRESS + category + "/"
+                + "api-key=" + API_KEY;
 
         return url;
     }

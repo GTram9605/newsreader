@@ -22,7 +22,7 @@ import za.ac.nplinnovations.newsreader.connection.pojos.Article;
 import za.ac.nplinnovations.newsreader.connection.pojos.MainResponse;
 
 public class AdapterArticle extends RecyclerView.Adapter<AdapterArticle.ViewHolder> {
-    public static final String Article = "selectedArticle";
+    public static final String SELECTED_ARTICLE = "selectedArticle";
     private MainResponse mData;
     private WeakReference<Context> mContextReference;
 
@@ -69,13 +69,15 @@ public class AdapterArticle extends RecyclerView.Adapter<AdapterArticle.ViewHold
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvAuthors = (TextView) itemView.findViewById(R.id.tvAuthors);
             tvDate = (TextView) itemView.findViewById(R.id.tvDate);
+
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             Article article = mData.getResults().get(getAdapterPosition());
             Intent intent = new Intent(v.getContext(), ViewArticleActivity.class);
-            intent.putExtra(Article, (Serializable) article);
+            intent.putExtra(SELECTED_ARTICLE, (Serializable) article);
             mContextReference.get().startActivity(intent);
         }
     }
