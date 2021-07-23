@@ -47,11 +47,15 @@ public class AdapterArticle extends RecyclerView.Adapter<AdapterArticle.ViewHold
         holder.tvAuthors.setText(article.getByline());
         holder.tvDate.setText(article.getPublished_date());
 
-        Picasso.get()
-                .load(article.getMedia().get(0).getMedia_metadata().get(0).getUrl())
-                .placeholder(R.drawable.no_image_icon)
-                .error(R.drawable.no_image_found)
-                .into(holder.ivArticleImage);
+        if (article.getMedia()!=null){
+            if (article.getMedia().size() > 0){
+                Picasso.get()
+                        .load(article.getMedia().get(0).getMedia_metadata().get(0).getUrl())
+                        .placeholder(R.drawable.no_image_icon)
+                        .error(R.drawable.no_image_found)
+                        .into(holder.ivArticleImage);
+            }
+        }
     }
 
     @Override
