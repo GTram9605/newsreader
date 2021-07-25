@@ -55,6 +55,8 @@ public class ViewArticleActivity extends AppCompatActivity {
 
             Picasso.get()
                     .load(mData.getMedia().get(0).getMedia_metadata().get(0).getUrl())
+            .resize(250, 250)
+                    .centerCrop()
                     .placeholder(R.drawable.no_image_icon)
                     .error(R.drawable.no_image_found)
                     .into(ivOne);
@@ -79,10 +81,18 @@ public class ViewArticleActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id==android.R.id.home) {
-            finish();
+           // finish();
+            onBackPressed();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ListArticlesActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }
 
