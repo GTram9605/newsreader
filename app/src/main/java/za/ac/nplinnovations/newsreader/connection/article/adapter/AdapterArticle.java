@@ -82,6 +82,7 @@ public class AdapterArticle extends RecyclerView.Adapter<AdapterArticle.ViewHold
             Article article = mData.getResults().get(getAdapterPosition());
             Intent intent = new Intent(v.getContext(), ViewArticleActivity.class);
             intent.putExtra(SELECTED_ARTICLE, (Serializable) article);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContextReference.get().startActivity(intent);
         }
     }

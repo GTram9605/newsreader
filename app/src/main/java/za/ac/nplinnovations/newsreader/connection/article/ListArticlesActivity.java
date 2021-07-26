@@ -60,6 +60,7 @@ public class ListArticlesActivity extends AppCompatActivity {
         category = "viewed";
         period = 7;
 
+
         Intent intent = getIntent();
         if (intent.getSerializableExtra(SplashActivity.ARTICLES) != null){
             mData = (MainResponse)intent.getSerializableExtra(SplashActivity.ARTICLES);
@@ -71,11 +72,11 @@ public class ListArticlesActivity extends AppCompatActivity {
         spinnerCategory = (Spinner) findViewById(R.id.spinnerCategory);
         spinnerDays = (Spinner) findViewById(R.id.spinnerDays);
         pbLoading = (ProgressBar) findViewById(R.id.pbLoading);
-
-        tvCopyright.setText(mData.getCopyright());
+       // reloadArticles();
+        if (mData != null) tvCopyright.setText(mData.getCopyright());
 
         adapter = new AdapterArticle(mData, this);
-        if (mData.getNum_results() > 0){
+        if (mData != null && mData.getNum_results() > 0){
             rvMain.setVisibility(View.VISIBLE);
             tvNoData.setVisibility(View.GONE);
             rvMain.setAdapter(adapter);
